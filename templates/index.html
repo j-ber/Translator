@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translation App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .translation-result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Translation App</h1>
+    
+    <h2>French to English</h2>
+    <form action="/translate/french-to-english" method="POST">
+        <label for="french_text">Enter French text:</label><br>
+        <input type="text" id="french_text" name="french_text"><br>
+        <input type="submit" value="Translate">
+    </form>
+    
+    <h2>English to French</h2>
+    <form action="/translate/english-to-french" method="POST">
+        <label for="english_text">Enter English text:</label><br>
+        <input type="text" id="english_text" name="english_text"><br>
+        <input type="submit" value="Translate">
+    </form>
+    
+    {% if translation_result %}
+        <div class="translation-result">
+            <h3>Translation Result:</h3>
+            <p>{{ translation_result }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
